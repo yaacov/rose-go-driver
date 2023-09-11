@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rose-go-driver-deployment
+  labels:
+    app: rose-go-driver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rose-go-driver
+  template:
+    metadata:
+      labels:
+        app: rose-go-driver
+    spec:
+      containers:
+      - name: rose-go-driver-container
+        image: quay.io/rose/rose-go-driver:latest  # Modify with your Docker image name and tag.
+        ports:
+        - containerPort: 8081
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: rose-go-driver-service
+spec:
+  selector:
+    app: rose-go-driver
+  ports:
+    - protocol: TCP
+      port: 8081
+      targetPort: 8081
+  type: LoadBalancer  # Exposes the Service externally using a cloud provider's load balancer.
