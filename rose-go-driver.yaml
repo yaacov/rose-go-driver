@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rose-go-driver-deployment
+  name: rose-go-driver
   labels:
     app: rose-go-driver
 spec:
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: rose-go-driver-container
-        image: quay.io/rose/rose-go-driver:latest  # Modify with your Docker image name and tag.
+        image: quay.io/yaacov/rose-go-driver:latest  # Modify with your Docker image name and tag.
         ports:
         - containerPort: 8081
 
@@ -25,7 +25,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: rose-go-driver-service
+  name: rose-go-driver
 spec:
   selector:
     app: rose-go-driver

@@ -2,7 +2,7 @@
 
 # Project variables
 BINARY_NAME ?= rose-go-driver
-IMAGE_NAME ?= quay.io/rose/rose-go-driver
+IMAGE_NAME ?= quay.io/yaacov/rose-go-driver
 MAIN_FILE ?= cmd/main.go
 PORT ?= 8081
 
